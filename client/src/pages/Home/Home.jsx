@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 
 export const Home = () => {
   return (
-    <main>
+    <main className=" bg-gray-950">
       <section className=" h-screen flex flex-col gap-10 items-center justify-center">
         <div className=" w-[80%] max-w-[600px]">
           <img src={logo} alt="" className=" mx-auto w-full" />

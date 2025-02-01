@@ -6,6 +6,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
+import { Header } from "./layouts/Header/Header";
 
 const App = () => {
   // All routes
@@ -13,6 +15,10 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/">
         <Route index element={<Home></Home>}></Route>
+
+        <Route element={<Header />}>
+          <Route path=":media" element={<Dashboard></Dashboard>}></Route>
+        </Route>
       </Route>
     )
   );

@@ -1,11 +1,10 @@
-import { http, HttpResponse } from "msw";
+import { delay, http, HttpResponse } from "msw";
+import trendingMovies from "./mockdata/trendingMovies";
 
 export const handlers = [
-  http.get("https://example.com/user", () => {
-    return HttpResponse.json({
-      id: "c7b3d8e0-5e0b-4b0f-8b3a-3b9f4b3d3b3d",
-      firstName: "John",
-      lastName: "Maverick",
-    });
+  http.get("http://localhost:3001/movies/trending", async () => {
+    await delay(3000);
+    return HttpResponse.json(trendingMovies, { status: 200 });
+    // return HttpResponse.text("Error Getting Media", { status: 400 });
   }),
 ];
