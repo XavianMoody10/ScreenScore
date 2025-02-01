@@ -11,4 +11,17 @@ async function getTrendingMovies() {
   }
 }
 
-export { getTrendingMovies };
+async function getMoviesMediaList(endpoint) {
+  try {
+    if (!endpoint) {
+      throw Error("Valid endpoint is required");
+    }
+
+    const response = await axios.get(endpoint);
+    return response;
+  } catch (error) {
+    throw Error(error.response.data);
+  }
+}
+
+export { getTrendingMovies, getMoviesMediaList };
