@@ -13,6 +13,11 @@ export const Dashboard = () => {
       subheadingPath: "/movies/now_playing",
       endpoint: "http://localhost:3001/movies/now_playing",
     },
+    {
+      subheading: "Popular",
+      subheadingPath: "/movies/popular",
+      endpoint: "http://localhost:3001/movies/popular",
+    },
   ];
 
   // Display sections
@@ -23,7 +28,7 @@ export const Dashboard = () => {
           to={s.subheadingPath}
           className=" flex justify-center border-b-2 hover:border-white sm:justify-start sm:w-fit"
         >
-          <span className=" text-2xl text-white font-extrabold">
+          <span className=" text-2xl xl:text-3xl text-white font-extrabold">
             {s.subheading}
           </span>
 
