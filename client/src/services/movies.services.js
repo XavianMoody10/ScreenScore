@@ -11,13 +11,18 @@ async function getTrendingMovies() {
   }
 }
 
-async function getMoviesMediaList(endpoint) {
+async function getMoviesMediaList(endpoint, page) {
   try {
     if (!endpoint) {
       throw Error("Valid endpoint is required");
     }
 
-    const response = await axios.get(endpoint);
+    const response = await axios.get(endpoint, {
+      params: {
+        page: page || 1,
+      },
+    });
+
     return response;
   } catch (error) {
     throw Error(error.response.data);

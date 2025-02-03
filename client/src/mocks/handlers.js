@@ -10,10 +10,21 @@ export const handlers = [
     // return HttpResponse.text("Error Getting Media", { status: 400 });
   }),
 
-  http.get("http://localhost:3001/movies/now_playing", async () => {
+  http.get("http://localhost:3001/movies/now_playing", async ({ request }) => {
+    const url = new URL(request.url);
+    const page = url.searchParams.get("page");
+
     await delay(3000);
-    return HttpResponse.json(nowPlayingMoviesMockdata, { status: 200 });
-    // return HttpResponse.text("Error Getting Media", { status: 400 });
+
+    if (page === "1") {
+      return HttpResponse.json(nowPlayingMoviesMockdata[0], { status: 200 });
+    }
+    if (page === "2") {
+      return HttpResponse.json(nowPlayingMoviesMockdata[1], { status: 200 });
+    }
+    if (page === "3") {
+      return HttpResponse.json(nowPlayingMoviesMockdata[2], { status: 200 });
+    }
   }),
 
   http.get("http://localhost:3001/movies/popular", async () => {

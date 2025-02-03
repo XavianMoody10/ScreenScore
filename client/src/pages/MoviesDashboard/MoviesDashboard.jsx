@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { LargeMediaSlider } from "../../components/LargeMediaSlider/LargeMediaSlider";
 import { SmallMediaSlider } from "../../components/SmallMediaSlider/SmallMediaSlider";
 
-export const Dashboard = () => {
+export const MoviesDashboard = () => {
   // Data for sections with small slider
   const smallSlidersectionsData = [
     {
