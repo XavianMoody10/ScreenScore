@@ -38,10 +38,16 @@ export const MediaCatalog = () => {
     const posterURL = `https://image.tmdb.org/t/p/original${m.poster_path}`;
 
     return (
-      <div key={m.id}>
+      <div key={m.id} className=" relative">
         <div>
           <img src={posterURL} alt={`${m.title || m.name} Poster`} />
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          className=" absolute top-0 left-0 right-0 bottom-0 bg-black/55"
+        ></motion.div>
       </div>
     );
   });
