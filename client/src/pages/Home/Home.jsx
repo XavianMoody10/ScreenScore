@@ -11,14 +11,13 @@ export const Home = () => {
         </div>
 
         <p className=" text-center max-w-[600px] font-primary-font hidden sm:block text-lg">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat
-          dolorum laudantium qui officiis eum, maxime, eligendi cupiditate aut
-          reiciendis sint accusantium quidem quis, ducimus fugit?
+          A MERN-stack application that allows users to review and rate movies
+          and TV shows
         </p>
 
         <div className=" w-full max-w-[200px]">
           <Link
-            className=" border-2 w-full block font-semibold text-center py-2 rounded-lg hover:bg-black hover:text-white font-primary-font md:text-lg"
+            className=" border-2 w-full block font-semibold text-center py-2 rounded-lg hover:bg-black hover:text-white font-primary-font sm:text-lg"
             to={"/movies"}
           >
             Explore
