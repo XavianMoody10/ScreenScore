@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { fetchMediaList } from "../../services/media.services";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { IsPageLoadingContext } from "../../context/IsPageLoadingContext";
 
 export const MediaCatalog = () => {
   const [data, setData] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   const { media } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const category = searchParams.get("category");
+  const location = useLocation();
+  const { isLoading, setIsLoading } = useContext(IsPageLoadingContext);
 
   // Fetch media data from server
   async function fetchMedia(media, category, page) {
@@ -30,8 +32,8 @@ export const MediaCatalog = () => {
   }
 
   useEffect(() => {
-    fetchMedia(media, "trending", 1);
-  }, [media, category]);
+    fetchMedia(media, category, 1);
+  }, [location.pathname, media, category]);
 
   // Display movies and tv shows
   const mediaMap = data.map((m) => {
