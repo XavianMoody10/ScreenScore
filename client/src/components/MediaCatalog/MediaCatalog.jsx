@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { fetchMediaList } from "../../services/media.services";
-import { useLocation, useParams, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { IsPageLoadingContext } from "../../context/IsPageLoadingContext";
@@ -49,7 +54,16 @@ export const MediaCatalog = () => {
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
           className=" absolute top-0 left-0 right-0 bottom-0 bg-black/55"
-        ></motion.div>
+        >
+          <div className=" absolute bottom-5 left-3">
+            <Link
+              to={`/${media}/${m.id}`}
+              className=" bg-white py-2 px-5 font-primary-font rounded-lg"
+            >
+              Details
+            </Link>
+          </div>
+        </motion.div>
       </div>
     );
   });

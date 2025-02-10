@@ -49,7 +49,7 @@ export const CatalogFilter = () => {
         {isLoading && (
           <motion.div
             exit={{ opacity: 0 }}
-            transition={{ delay: 2 }}
+            transition={{ delay: 1 }}
             className=" absolute top-0 left-0 bottom-0 right-0 w-full h-full z-20"
           ></motion.div>
         )}
